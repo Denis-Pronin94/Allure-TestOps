@@ -61,7 +61,7 @@ public class AuthTest {
 
     @Test
     @AllureId("10947")
-    @DisplayName("Авторизация через Fecebook")
+    @DisplayName("Авторизация через Facebook")
     @Tags({@Tag("blocker"), @Tag("web")})
     public void testFacebookAuth() {
         step("Открываем главную страницу");
@@ -76,6 +76,27 @@ public class AuthTest {
         step("Профиль пользователя должен заполнен из Facebook", () -> {
             step("Имя Denis Pronin");
             step("Login denispronin");
+            step("Аватарка ");
+        });
+        step("Разлогиниваемся");
+    }
+
+    @Test
+    @DisplayName("Авторизация через Apple")
+    @Tags({@Tag("blocker"), @Tag("web")})
+    public void testAppleAuth() {
+        step("Открываем главную страницу");
+        step("Нажимаем кнопку Авторизация");
+        step("Выбираем способ авторизации через Apple");
+        step("Авторизуемся как пользователь 'Mr. Apple'", () -> {
+            step("Вводим логин random@icloud.com");
+            step("Вводим пароль 123123-123123-123123-123132");
+            step("Нажимаем кнопку войти");
+        });
+        step("Должны оказаться на главной странице сайта");
+        step("Профиль пользователя должен заполнен из Apple", () -> {
+            step("Имя 'Mr. Apple'");
+            step("Login 'Mr. Random'");
             step("Аватарка ");
         });
         step("Разлогиниваемся");
