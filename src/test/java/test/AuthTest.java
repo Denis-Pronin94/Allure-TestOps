@@ -58,4 +58,26 @@ public class AuthTest {
         });
         step("Разлогиниваемся");
     }
+
+    @Test
+    @AllureId("10947")
+    @DisplayName("Авторизация через Fecebook")
+    @Tags({@Tag("blocker"), @Tag("web")})
+    public void testFacebookAuth() {
+        step("Открываем главную страницу");
+        step("Нажимаем кнопку Авторизация");
+        step("Выбираем способ авторизации через Facebook");
+        step("Авторизуемся как пользователь Denis Pronin", () -> {
+            step("Вводим логин denispronin@gmail.com");
+            step("Вводим пароль 123123");
+            step("Нажимаем кнопку войти");
+        });
+        step("Должны оказаться на главной странице сайта");
+        step("Профиль пользователя должен заполнен из Facebook", () -> {
+            step("Имя Denis Pronin");
+            step("Login denispronin");
+            step("Аватарка ");
+        });
+        step("Разлогиниваемся");
+    }
 }
