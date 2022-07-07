@@ -26,15 +26,14 @@ public class AuthTest {
         step("Нажимаем кнопку Авторизация");
         step("Выбираем способ авторизации через Google");
         step("Авторизуемся как пользователь 'Mr. Random'", () -> {
-            step("Вводим логин 'random-user'");
-            step("Вводим пароль 'random-pass'");
+            step("Вводим логин 'random-user-123'");
+            step("Вводим пароль 'random-pass-123'");
             step("Нажимаем кнопку войти");
         });
         step("Должны оказаться на главной странице сайта");
         step("Профиль пользователя должен заполнен из Google", () -> {
             step("Имя 'Mr. Random'");
-            step("Login 'random-user'");
-            step("Аватарка ");
+            step("Login 'random-user-123'");
         });
         step("Разлогиниваемся");
     }
